@@ -1,0 +1,6 @@
+index: ${index}
+
+spring:
+  data:
+    mongodb:
+      uri: ${datasource.uri}
