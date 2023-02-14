@@ -33,13 +33,22 @@ jobs:
 #       with:
 #         arguments: build
     
-    - uses: actions/checkout@v3
-    - run: touch ./src/main/resources/application.yml
-    - run: echo "${{ secrets.INDEX }}" > ./src/main/resources/application.yml
-    - run: cat ./src/main/resources/application.yml
+#     - uses: actions/checkout@v3
+#     - run: touch ./src/main/resources/application.yml
+#     - run: echo "${{ secrets.INDEX }}" > ./src/main/resources/application.yml
+#     - run: cat ./src/main/resources/application.yml
+
+    - name: Set application.yml args
+      run: |
+        echo "SETTING APPLICATION.YML ARGS"
+        echo "index=${{ secrets.INDEX }}" >> $GITHUB_ENV
+        echo "datasource_uri=${{ secrets.DATASOURCE_URI }}" >> $GITHUB_ENV
     
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
     
     - name: Build with Gradle
+      env:
+        index: ${{ env.index }}
+        datasource_uri: ${{ env.datasource_uri }}
       run: ./gradlew clean build
