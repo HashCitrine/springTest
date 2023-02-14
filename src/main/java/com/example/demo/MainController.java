@@ -9,4 +9,9 @@ public class MainController {
 	public String helloWorld() {
 		return "Hello World!";
 	}
+
+	@RequestMapping("/update")
+	public String update() {
+		return "update";
+	}
 }
