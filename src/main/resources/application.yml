@@ -3,4 +3,4 @@ index: ${index}
 spring:
   data:
     mongodb:
-      uri: ${datasource.uri}
+      uri: ${datasource_uri}
