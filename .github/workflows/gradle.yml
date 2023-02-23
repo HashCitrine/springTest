@@ -40,7 +40,6 @@ jobs:
 #     - run: touch ./src/main/resources/application.yml
 #     - run: echo "${{ secrets.INDEX }}" > ./src/main/resources/application.yml
 #     - run: cat ./src/main/resources/application.yml
-
     - name: Set application.yml args
       run: |
         echo "SETTING APPLICATION.YML ARGS"
