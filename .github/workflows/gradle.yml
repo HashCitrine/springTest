@@ -58,6 +58,7 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - uses: actions/checkout@v3
       - name : Set up DB Connection Info
       - run: touch ./src/main/resources/application.yml
       - run: echo "${{ secrets.INDEX }}" > ./src/main/resources/application.yml
